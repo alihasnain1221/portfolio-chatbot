@@ -1,0 +1,11 @@
+# Served from the dist docroot (ali.nexteksol.com points here). Single origin:
+# static SPA below, API proxied to the backend container on the same host.
+RewriteEngine On
+
+# API + health -> backend container on localhost:8000 (same-origin: no CORS, no mixed content)
+RewriteRule ^(ask|health|docs|openapi\.json)(.*)$ http://localhost:8000/$1$2 [P,L]
+
+# SPA client-side routing: real files served as-is, everything else -> index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

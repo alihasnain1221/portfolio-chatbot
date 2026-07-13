@@ -86,7 +86,7 @@ export const hirePage = {
   form: {
     heading: 'Start the conversation',
     sub: 'Tell me what you\'re building. This composes an email straight to my inbox.',
-    to: 'alibutthasnain@gmail.com',
+    to: 'alihussnain20.dev@gmail.com',
     engagementOptions: ['Contract / Build', 'Strategic Advisory', 'Full-Time role', 'Other'],
     submit: 'Send inquiry',
   },
@@ -179,6 +179,6 @@ export const footer = {
   copy: '© 2026 Ali Hasnain. Senior Software & AI Engineer.',
   links: [
     { label: 'LinkedIn', href: 'https://linkedin.com/in/ali-hasnain-mir' },
-    { label: 'Email', href: 'mailto:alibutthasnain@gmail.com' },
+    { label: 'Email', href: 'mailto:alihussnain20.dev@gmail.com' },
   ],
 }

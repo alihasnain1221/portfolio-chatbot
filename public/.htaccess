@@ -1,0 +1,13 @@
+# ali.nexteksol.com — single origin for the portfolio.
+# Static SPA is served from this folder; API calls are proxied to the backend
+# container (uvicorn on this same host, :8000). No exposed :8000, no CORS, no
+# mixed content — Apache terminates TLS and proxies /ask + /health internally.
+RewriteEngine On
+
+# API + health -> backend container on localhost:8000
+RewriteRule ^(ask|health|docs|openapi\.json)(.*)$ http://localhost:8000/$1$2 [P,L]
+
+# SPA client-side routes (/chat, /hire) fall back to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

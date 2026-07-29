@@ -37,7 +37,7 @@ export default function AiTwinChat({ className = '' }: { className?: string }) {
       {/* Greeting + suggestion chips (both routes into /chat) */}
       <div className="flex-grow space-y-3 wide:space-y-[clamp(12px,0.8vw,24px)] overflow-y-auto pr-2 wide:pr-4 custom-scrollbar">
         <div className="flex justify-start">
-          <div className="silver-wire-chat rounded-xl wide:rounded-2xl rounded-tl-none p-3 wide:p-[clamp(12px,0.8vw,20px)] max-w-[90%] text-on-surface text-[11px] wide:text-[clamp(11px,0.9vw,16px)] font-light leading-relaxed">
+          <div className="silver-wire-chat rounded-xl wide:rounded-2xl rounded-tl-none p-3 wide:p-[clamp(12px,0.8vw,20px)] max-w-[90%] text-on-surface text-[11px] wide:text-[clamp(11px,0.9vw,16px)] font-light leading-relaxed shadow-lg">
             {aiTwin.greeting}
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function AiTwinChat({ className = '' }: { className?: string }) {
             <button
               key={s}
               onClick={() => launch(s)}
-              className="border border-outline-variant bg-white/20 text-on-surface-variant text-[9px] wide:text-[clamp(9px,0.7vw,14px)] px-2 wide:px-[clamp(8px,0.5vw,16px)] py-1 wide:py-[clamp(4px,0.3vw,10px)] rounded-full hover:bg-white/40 transition-colors"
+              className="border border-outline-variant bg-white/20 text-on-surface-variant text-[9px] wide:text-[clamp(9px,0.7vw,14px)] px-2 wide:px-[clamp(8px,0.5vw,16px)] py-1 wide:py-[clamp(4px,0.3vw,10px)] rounded-full shadow-md hover:bg-white/40 transition-colors"
             >
               {s}
             </button>
@@ -71,7 +71,7 @@ export default function AiTwinChat({ className = '' }: { className?: string }) {
         />
         <button
           type="submit"
-          className="absolute right-1 wide:right-2 top-1/2 -translate-y-1/2 bg-transparent border border-outline-variant text-on-surface-variant p-1.5 wide:p-[clamp(6px,0.5vw,14px)] rounded-lg wide:rounded-xl hover:bg-white/40 transition-colors"
+          className="absolute right-1 wide:right-2 top-1/2 -translate-y-1/2 bg-primary text-white p-1.5 wide:p-[clamp(6px,0.5vw,14px)] rounded-lg wide:rounded-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center"
           aria-label="Start chatting"
         >
           <span className="material-symbols-outlined text-[12px] wide:text-[clamp(12px,0.8vw,18px)]">arrow_forward</span>

@@ -2,7 +2,7 @@ import { useCallback, useRef, useState } from 'react'
 import { aiTwin, API_BASE } from '../data/portfolio'
 import { useTurnstile } from './useTurnstile'
 
-export type ChatMsg = { role: 'assistant' | 'user'; text: string }
+export type ChatMsg = { role: 'assistant' | 'user'; text: string; time: string }
 
 type AskResponse = { answer?: string; message?: string }
 
@@ -11,7 +11,7 @@ type AskResponse = { answer?: string; message?: string }
 // (with graceful handling of the friendly 503 "busy" message).
 export function useChat() {
   const [messages, setMessages] = useState<ChatMsg[]>([
-    { role: 'assistant', text: aiTwin.greeting },
+    { role: 'assistant', text: aiTwin.greeting, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) },
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -30,7 +30,7 @@ export function useChat() {
       const q = text.trim()
       if (!q || loading) return
       setInput('')
-      setMessages((m) => [...m, { role: 'user', text: q }])
+      setMessages((m) => [...m, { role: 'user', text: q, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }])
       setLoading(true)
       scrollToBottom()
       try {
@@ -46,13 +46,14 @@ export function useChat() {
           data.answer ||
           data.message ||
           "Hmm, I couldn't reach my brain just now. Mind trying again in a moment?"
-        setMessages((m) => [...m, { role: 'assistant', text: reply }])
+        setMessages((m) => [...m, { role: 'assistant', text: reply, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }])
       } catch {
         setMessages((m) => [
           ...m,
           {
             role: 'assistant',
             text: 'Looks like my backend is offline right now. Try again shortly, or reach me on LinkedIn.',
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
           },
         ])
       } finally {

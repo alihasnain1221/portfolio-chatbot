@@ -24,7 +24,7 @@ export default function Hero() {
           <div className="flex gap-3 justify-center flex-wrap pt-2">
             <a
               href="#projects"
-              className="glass-panel text-on-surface px-6 py-3 rounded-xl text-[11px] tracking-widest inline-block"
+              className="glass-panel text-on-surface px-6 py-3 rounded-xl text-[11px] drop-shadow-md tracking-widest inline-block"
             >
               {hero.primaryCta}
             </a>
@@ -65,7 +65,7 @@ export default function Hero() {
       </div>
 
       {/* ===== DESKTOP (lg+) ===== */}
-      <div className="hidden lg:flex min-h-screen items-center pt-10 max-w-7xl mx-auto w-full">
+      <div className="hidden lg:flex min-h-screen items-center pt-2 max-w-7xl mx-auto w-full">
         {/* Portrait behind content */}
         <img
           src="/img/new_pic_2.png"
@@ -85,7 +85,7 @@ export default function Hero() {
           <div className="flex gap-3 wide:gap-4 flex-wrap">
             <a
               href="#projects"
-              className="glass-panel text-on-surface px-5 wide:px-[clamp(20px,1.5vw,28px)] py-2.5 wide:py-[clamp(10px,0.5vw,14px)] rounded-xl text-[10px] wide:text-[clamp(10px,0.8vw,16px)] hover:shadow-xl transition-all tracking-widest inline-block"
+              className="glass-panel text-on-surface px-5 wide:px-[clamp(20px,1.5vw,28px)] py-2.5 wide:py-[clamp(10px,0.5vw,14px)] rounded-xl text-[10px] wide:text-[clamp(10px,0.8vw,16px)] drop-shadow-md hover:shadow-xl transition-all tracking-widest inline-block"
             >
               {hero.primaryCta}
             </a>

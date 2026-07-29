@@ -105,7 +105,8 @@ export const heroProject = {
   blurb:
     'A production sports social network where I built a 3-layer AI content moderation pipeline (AWS Rekognition, then OpenAI Moderation, then GPT-4o with structured output) and re-architected the backend from a monolith into microservices with full Terraform IaC on AWS.',
   tags: ['MERN', 'AWS', 'GPT-4o', 'Terraform', 'Microservices'],
-  image: '/img/spin-pipeline.svg',
+  image: '/FeaturedProjectsPictures/Spin.png',
+  url: 'https://www.dev.spinsports.ai/',
 }
 
 export const sideProjects = [
@@ -114,12 +115,15 @@ export const sideProjects = [
     blurb:
       'Re-architected a coupled 3-module monolith into 12 independent microservices with full Terraform IaC on AWS, and led cross-region disaster recovery during an AWS outage.',
     tags: ['NEST.JS', 'TERRAFORM', 'AWS'],
+    image: '/img/umeed-microservices.svg',
   },
   {
     name: 'Success.ai',
     blurb:
       'A multi-channel cold outreach platform. Apify scrapes LinkedIn leads, AI generates personalized copy, and a unified multi-account inbox drives automated EmailEngine sequences. Self-hosted on openClaw.',
     tags: ['MERN', 'OPENAI', 'AUTOMATION'],
+    image: '/FeaturedProjectsPictures/SuccessAI.png',
+    url: 'https://www.success.ai/',
   },
 ]
 

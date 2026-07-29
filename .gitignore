@@ -1,14 +1,13 @@
 # deps
 node_modules/
+dist/
 
 # local env (keep .env.example tracked)
 .env
 *.local
 
-# NOTE: dist/ is intentionally committed — the server serves the built dist
-# directly (no CI build step). Do NOT ignore it.
-
 # misc
 npm-debug.log*
 yarn-error.log*
 .DS_Store
+.vscode/

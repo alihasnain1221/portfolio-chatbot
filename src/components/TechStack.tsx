@@ -35,7 +35,7 @@ export default function TechStack() {
         {stackCategories.map((c) => (
           <div
             key={c.title}
-            className="glass-panel p-10 rounded-3xl space-y-6 flex flex-col items-center text-center"
+            className="glass-panel p-6 sm:p-10 rounded-3xl space-y-6 flex flex-col items-center text-center"
           >
             <span className="material-symbols-outlined text-outline text-4xl font-light">{c.icon}</span>
             <h4 className="font-label-md text-label-md tracking-widest text-on-surface uppercase">

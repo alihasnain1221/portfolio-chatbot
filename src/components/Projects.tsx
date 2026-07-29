@@ -28,7 +28,7 @@ export default function Projects() {
             <h3 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-6 font-light tracking-wide text-on-surface">
               {heroProject.name}
             </h3>
-            <p className="font-body-lg text-2xl text-on-surface-variant font-light leading-relaxed">
+            <p className="font-body-lg text-body-lg md:text-2xl text-on-surface-variant font-light leading-relaxed">
               {heroProject.blurb}
             </p>
           </div>
@@ -43,18 +43,23 @@ export default function Projects() {
                 </span>
               ))}
             </div>
-            <a href={heroProject.url} target="_blank" rel="noopener noreferrer" className="group/visit">
-              <div className="w-full overflow-hidden rounded-3xl relative">
-                <img
-                  className="w-full object-contain"
-                  src={heroProject.image}
-                  alt="SPiN AI content moderation pipeline: AWS Rekognition, OpenAI Moderation, GPT-4o, then verdict to MongoDB"
-                />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/visit:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-lg font-semibold tracking-widest uppercase">Visit</span>
-                </div>
-              </div>
-            </a>
+            <div className="w-full overflow-hidden rounded-3xl">
+              <img
+                className="w-full object-contain"
+                src={heroProject.image}
+                alt="SPiN AI content moderation pipeline: AWS Rekognition, OpenAI Moderation, GPT-4o, then verdict to MongoDB"
+              />
+            </div>
+            <div className="flex justify-center mt-4">
+              <a
+                href={heroProject.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 rounded-full border border-outline-variant text-on-surface text-xs font-semibold tracking-widest uppercase hover:bg-white/20 transition-colors"
+              >
+                Visit Project
+              </a>
+            </div>
           </div>
         </div>
 
@@ -75,28 +80,25 @@ export default function Projects() {
                 {p.blurb}
               </p>
             </div>
+            <div className="w-full overflow-hidden rounded-3xl mt-6">
+              <img
+                className="w-full object-contain"
+                src={p.image}
+                alt={`${p.name} architecture diagram`}
+              />
+            </div>
             {p.url ? (
-              <a href={p.url} target="_blank" rel="noopener noreferrer" className="group/visit">
-                <div className="w-full overflow-hidden rounded-3xl mt-6 relative">
-                  <img
-                    className="w-full object-contain"
-                    src={p.image}
-                    alt={`${p.name} architecture diagram`}
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/visit:opacity-100 transition-opacity duration-300">
-                    <span className="text-white text-lg font-semibold tracking-widest uppercase">Visit</span>
-                  </div>
-                </div>
-              </a>
-            ) : (
-              <div className="w-full overflow-hidden rounded-3xl mt-6 relative">
-                <img
-                  className="w-full object-contain"
-                  src={p.image}
-                  alt={`${p.name} architecture diagram`}
-                />
+              <div className="flex justify-center mt-4">
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 rounded-full border border-outline-variant text-on-surface text-xs font-semibold tracking-widest uppercase hover:bg-white/20 transition-colors"
+                >
+                  Visit Project
+                </a>
               </div>
-            )}
+            ) : null}
             <div className="flex gap-4 border-t border-outline-variant/30 pt-6 mt-6">
               {p.tags.map((t) => (
                 <span key={t} className="text-[10px] font-medium tracking-widest text-outline uppercase">

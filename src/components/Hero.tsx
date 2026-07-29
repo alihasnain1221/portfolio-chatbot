@@ -42,7 +42,7 @@ export default function Hero() {
           <img
             src="/img/new_pic_2.png"
             alt="Ali Hasnain"
-            className="w-auto h-[320px] sm:h-[400px] object-contain object-bottom drop-shadow-[0px_20px_40px_rgba(0,0,0,0.18)] drop-shadow-[0px_8px_20px_rgba(0,0,0,0.14)]"
+            className="w-auto max-w-full h-[260px] sm:h-[320px] md:h-[400px] object-contain object-bottom drop-shadow-[0px_20px_40px_rgba(0,0,0,0.18)] drop-shadow-[0px_8px_20px_rgba(0,0,0,0.14)]"
           />
           {/* Floating AI button */}
           <button

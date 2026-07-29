@@ -18,7 +18,7 @@ export default function Story() {
           <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed font-light">
             {story.blurb}
           </p>
-          <div className="pt-10 border-t border-outline-variant/30 grid grid-cols-3 gap-10">
+          <div className="pt-10 border-t border-outline-variant/30 grid grid-cols-3 gap-4 md:gap-10">
             {story.stats.map((s) => (
               <div key={s.label}>
                 <p className="font-headline-md text-headline-md font-light text-on-surface">{s.value}</p>

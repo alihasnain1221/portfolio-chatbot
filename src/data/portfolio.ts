@@ -104,8 +104,16 @@ export const heroProject = {
   name: 'SPiN',
   blurb:
     'A production sports social network where I built a 3-layer AI content moderation pipeline (AWS Rekognition, then OpenAI Moderation, then GPT-4o with structured output) and re-architected the backend from a monolith into microservices with full Terraform IaC on AWS.',
+  highlights: [
+    '3-layer AI moderation pipeline: vision (Rekognition) → text (OpenAI) → reasoning (GPT-4o)',
+    'Monolith-to-12 microservices decomposition with event-driven architecture',
+    'Full Terraform IaC on AWS: ECS, RDS, ElastiCache, SQS, Lambda',
+    'Real-time content moderation at scale with <500ms p95 verdict latency',
+    'Zero-downtime deploys and cross-region DR for a social media audience',
+  ],
   tags: ['MERN', 'AWS', 'GPT-4o', 'Terraform', 'Microservices'],
-  image: '/img/spin-pipeline.svg',
+  image: '/FeaturedProjectsPictures/Spin.png',
+  url: 'https://www.dev.spinsports.ai/',
 }
 
 export const sideProjects = [
@@ -114,12 +122,15 @@ export const sideProjects = [
     blurb:
       'Re-architected a coupled 3-module monolith into 12 independent microservices with full Terraform IaC on AWS, and led cross-region disaster recovery during an AWS outage.',
     tags: ['NEST.JS', 'TERRAFORM', 'AWS'],
+    image: '/img/umeed-microservices.svg',
   },
   {
     name: 'Success.ai',
     blurb:
       'A multi-channel cold outreach platform. Apify scrapes LinkedIn leads, AI generates personalized copy, and a unified multi-account inbox drives automated EmailEngine sequences. Self-hosted on openClaw.',
     tags: ['MERN', 'OPENAI', 'AUTOMATION'],
+    image: '/FeaturedProjectsPictures/SuccessAI.png',
+    url: 'https://www.success.ai/',
   },
 ]
 
@@ -166,6 +177,8 @@ export const story = {
   blurb:
     "I lead architecture-first. Whether I'm leading a team of 6 or splitting a monolith into microservices, the goal is clarity and resilience: reproducible infrastructure as code, zero-downtime deploys, and recovery that holds up when a whole region goes down.",
   stats: [
+    { value: '10+', label: 'Years Experience' },
+    { value: '15+', label: 'Well Managed Projects' },
     { value: '5+', label: 'Years Experience' },
     { value: 'Lead', label: 'Cross-functional teams' },
     { value: '99.9%', label: 'Uptime' },

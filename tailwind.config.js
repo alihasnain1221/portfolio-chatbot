@@ -6,6 +6,10 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        wide: '1300px',
+        xwide: '1536px',
+      },
       colors: {
         'on-tertiary-fixed': '#0d1c2d',
         'error-container': '#ffdad6',

@@ -1,34 +1,111 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { hero } from '../data/portfolio'
 import AiTwinChat from './AiTwinChat'
 
 export default function Hero() {
+  const navigate = useNavigate()
+
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center" id="hero">
-      <div className="space-y-8">
-        <h1 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl leading-tight font-light text-on-surface">
-          {hero.titleLight} <br />
-          <span className="text-outline font-semibold">{hero.titleBold}</span>
-        </h1>
-        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg font-light leading-relaxed">
-          {hero.blurb}
-        </p>
-        <div className="flex gap-6 flex-wrap">
-          <a
-            href="#projects"
-            className="glass-panel text-on-surface px-10 py-4 rounded-xl font-label-md text-label-md hover:shadow-xl transition-all tracking-widest inline-block"
+    <section
+      className="hero-bg overflow-hidden relative -mx-[20px] md:-mx-[64px] lg:ml-[calc(50%-50vw)] lg:w-screen -mt-28 md:-mt-40 px-6 md:px-16 shadow-lg"
+      id="hero"
+    >
+      {/* ===== MOBILE / SMALL TABLET (< lg) ===== */}
+      <div className="lg:hidden pt-28 md:pt-40 pb-8 flex flex-col items-center">
+        {/* Text */}
+        <div className="space-y-5 text-center max-w-md mx-auto">
+          <h1 className="font-headline-xl text-[28px] sm:text-[32px] leading-[1.15] font-light text-on-surface tracking-tight">
+            {hero.titleLight} <br />
+            <span className="text-outline font-semibold">{hero.titleBold}</span>
+          </h1>
+          <p className="text-[14px] sm:text-[15px] text-on-surface-variant font-light leading-relaxed">
+            {hero.blurb}
+          </p>
+          <div className="flex gap-3 justify-center flex-wrap pt-2">
+            <a
+              href="#projects"
+              className="glass-panel text-on-surface px-6 py-3 rounded-xl text-[11px] drop-shadow-md tracking-widest inline-block"
+            >
+              {hero.primaryCta}
+            </a>
+            <Link
+              to="/chat"
+              className="bg-transparent border border-outline-variant px-6 py-3 rounded-xl text-[11px] text-on-surface-variant hover:bg-white/30 transition-all tracking-widest inline-block"
+            >
+              {hero.secondaryCta}
+            </Link>
+          </div>
+        </div>
+
+        {/* Portrait + floating AI button */}
+        <div className="relative w-full mt-8 flex justify-center">
+          <img
+            src="/img/new_pic_2.png"
+            alt="Ali Hasnain"
+            className="w-auto max-w-full h-[260px] sm:h-[320px] md:h-[400px] object-contain object-bottom drop-shadow-[0px_20px_40px_rgba(0,0,0,0.18)] drop-shadow-[0px_8px_20px_rgba(0,0,0,0.14)]"
+          />
+          {/* Floating AI button */}
+          <button
+            onClick={() => navigate('/chat')}
+            className="absolute bottom-4 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 glass-panel-heavy rounded-full px-5 py-3 flex items-center gap-2.5 hover:scale-105 active:scale-95 transition-all shadow-lg group"
+            aria-label="Chat with AI Twin"
           >
-            {hero.primaryCta}
-          </a>
-          <Link
-            to="/chat"
-            className="bg-transparent border border-outline-variant px-10 py-4 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-white/30 transition-all tracking-widest inline-block"
-          >
-            {hero.secondaryCta}
-          </Link>
+            <span
+              className="material-symbols-outlined text-primary text-[22px] leading-none"
+              style={{ fontVariationSettings: "'FILL' 1, 'wght' 400" }}
+            >
+              hub
+            </span>
+            <span className="text-[11px] font-semibold tracking-widest text-on-surface uppercase">
+              Ask my AI
+            </span>
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          </button>
         </div>
       </div>
-      <AiTwinChat />
+
+      {/* ===== DESKTOP (lg+) ===== */}
+      <div className="hero-desktop hidden lg:grid min-h-[780px] wide:min-h-[860px] grid-cols-[minmax(220px,1fr)_clamp(340px,35vw,620px)_minmax(200px,0.9fr)] items-center pt-5 max-w-7xl wide:max-w-[1600px] mx-auto w-full gap-4 xl:gap-8 wide:gap-10">
+
+        {/* Text content - left */}
+        <div className="max-w-xl space-y-5 lg:space-y-6 wide:space-y-8 relative z-20 mr-2 xl:mr-4 wide:mr-6">
+          <h1 className="font-headline-xl text-[clamp(32px,2.6vw,48px)] wide:text-[clamp(38px,2.8vw,56px)] leading-[1.08] font-light text-on-surface tracking-tight max-w-[14ch] wide:max-w-[12ch]">
+            {hero.titleLight} <br />
+            <span className="text-outline font-semibold">{hero.titleBold}</span>
+          </h1>
+          <p className="text-[clamp(14px,1.1vw,18px)] wide:text-[clamp(16px,1.2vw,22px)] text-on-surface-variant max-w-[360px] wide:max-w-[38rem] font-light leading-relaxed">
+            {hero.blurb}
+          </p>
+          <div className="flex gap-3 lg:gap-4 wide:gap-5 flex-wrap">
+            <a
+              href="#projects"
+              className="glass-panel text-on-surface px-5 lg:px-6 wide:px-[clamp(20px,1.5vw,28px)] py-2.5 lg:py-3 wide:py-[clamp(10px,0.5vw,14px)] rounded-xl text-[10px] lg:text-[11px] wide:text-[clamp(11px,0.8vw,16px)] drop-shadow-md hover:shadow-xl transition-all tracking-widest inline-block"
+            >
+              {hero.primaryCta}
+            </a>
+            <Link
+              to="/chat"
+              className="bg-transparent border border-outline-variant px-5 lg:px-6 wide:px-[clamp(20px,1.5vw,28px)] py-2.5 lg:py-3 wide:py-[clamp(10px,0.5vw,14px)] rounded-xl text-[10px] lg:text-[11px] wide:text-[clamp(11px,0.8vw,16px)] text-on-surface-variant hover:bg-white/30 transition-all tracking-widest inline-block"
+            >
+              {hero.secondaryCta}
+            </Link>
+          </div>
+        </div>
+
+        {/* Portrait in the middle column so it never collides with the side content */}
+        <div className="hero-portrait-wrap relative z-10 flex items-end justify-center h-full">
+          <img
+            src="/img/new_pic_2.png"
+            alt="Ali Hasnain"
+            className="hero-portrait h-[115%] max-h-[1000px] wide:max-h-[540px] w-auto self-end scale-[1.18] origin-bottom object-contain object-bottom drop-shadow-[0px_20px_40px_rgba(0,0,0,0.18)] drop-shadow-[0px_8px_20px_rgba(0,0,0,0.14)]"
+          />
+        </div>
+
+        {/* AI Chat - right edge */}
+        <div className="relative z-20 justify-self-end ml-2 xl:ml-4 wide:ml-6 w-full flex justify-end">
+          <AiTwinChat />
+        </div>
+      </div>
     </section>
   )
 }

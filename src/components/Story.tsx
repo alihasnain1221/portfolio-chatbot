@@ -3,12 +3,12 @@ import { story } from '../data/portfolio'
 export default function Story() {
   return (
     <section
-      className="glass-panel-heavy rounded-[2rem] md:rounded-[3rem] p-8 sm:p-16 md:p-32 overflow-hidden relative"
+      className="glass-panel-heavy rounded-[2rem] md:rounded-[3rem] p-6 sm:p-8 md:p-16 lg:p-32 overflow-hidden relative"
       id="story"
     >
       <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-white/40 blur-[100px] rounded-full" />
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center">
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           <div className="inline-block px-6 py-2 rounded-full border border-outline-variant text-xs tracking-widest text-outline uppercase font-medium">
             {story.tag}
           </div>
@@ -18,7 +18,7 @@ export default function Story() {
           <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed font-light">
             {story.blurb}
           </p>
-          <div className="pt-10 border-t border-outline-variant/30 grid grid-cols-3 gap-10">
+          <div className="pt-10 border-t border-outline-variant/30 grid grid-cols-3 gap-4 md:gap-10">
             {story.stats.map((s) => (
               <div key={s.label}>
                 <p className="font-headline-md text-headline-md font-light text-on-surface">{s.value}</p>

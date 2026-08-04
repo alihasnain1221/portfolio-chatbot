@@ -25,7 +25,7 @@ export default function HirePage() {
   }
 
   const field =
-    'w-full bg-white/40 border border-outline-variant/50 rounded-xl py-3 px-4 focus:border-outline focus:ring-0 focus:outline-none backdrop-blur-sm font-light text-on-surface transition-colors'
+    'w-full bg-white/40 border border-outline-variant/50 rounded-xl py-2.5 sm:py-3 px-3 sm:px-4 focus:border-outline focus:ring-0 focus:outline-none backdrop-blur-sm font-light text-on-surface transition-colors text-sm sm:text-base'
   const fieldLabel =
     'block font-label-sm text-label-sm text-on-surface tracking-wider uppercase'
 
@@ -40,9 +40,9 @@ export default function HirePage() {
         </p>
       </div>
 
-      <section className="glass-blueprint-slab rounded-[3rem] p-10 md:p-16 relative overflow-hidden flex flex-col lg:flex-row gap-16 lg:gap-0">
+      <section className="glass-blueprint-slab rounded-[2rem] sm:rounded-[3rem] p-5 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12 lg:gap-16 lg:gap-0">
         {/* Left: engagement details */}
-        <div className="lg:w-1/2 lg:pr-16 space-y-12">
+        <div className="lg:w-1/2 lg:pr-16 space-y-8 sm:space-y-12">
           <div className="space-y-4 border-b border-outline-variant/30 pb-8">
             <div className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -63,7 +63,7 @@ export default function HirePage() {
               {hirePage.engagementModels.map((m, i) => (
                 <div
                   key={m.title}
-                  className={`p-6 rounded-2xl bg-white/20 border border-white/40 hover:bg-white/30 transition-colors ${
+                  className={`p-4 sm:p-5 md:p-6 rounded-2xl bg-white/20 border border-white/40 hover:bg-white/30 transition-colors ${
                     i === hirePage.engagementModels.length - 1 ? 'opacity-80' : ''
                   }`}
                 >
@@ -85,7 +85,7 @@ export default function HirePage() {
               {hirePage.domains.map((d) => (
                 <span
                   key={d}
-                  className="border border-outline-variant bg-white/20 px-4 py-1.5 rounded-full text-xs font-label-md text-on-surface tracking-wider"
+                  className="border border-outline-variant bg-white/20 px-3 sm:px-4 py-1.5 rounded-full text-xs font-label-md text-on-surface tracking-wider"
                 >
                   {d}
                 </span>
@@ -96,7 +96,7 @@ export default function HirePage() {
 
         {/* Right: contact form */}
         <div className="lg:w-1/2 lg:pl-16 lg:blueprint-divider flex flex-col justify-center">
-          <div className="bg-white/30 backdrop-blur-md rounded-3xl p-10 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)]">
+          <div className="bg-white/30 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)]">
             <div className="mb-8">
               <h2 className="font-headline-md text-headline-md font-light text-on-surface mb-2">
                 {hirePage.form.heading}
@@ -166,7 +166,7 @@ export default function HirePage() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/50 font-label-md text-label-md py-4 rounded-xl transition-all duration-300 tracking-widest mt-4"
+                className="w-full bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/50 font-label-md text-label-md py-3.5 sm:py-4 rounded-xl transition-all duration-300 tracking-widest mt-4"
               >
                 {hirePage.form.submit}
               </button>

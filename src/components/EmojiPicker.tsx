@@ -93,7 +93,6 @@ export default function EmojiPicker({ onEmojiSelect, formRef, chatboxRef }: Prop
         formRef.current &&
         createPortal(
           <div
-            ref={popoverRef}
             style={{
               position: 'absolute',
               bottom: '100%',
@@ -107,6 +106,7 @@ export default function EmojiPicker({ onEmojiSelect, formRef, chatboxRef }: Prop
           >
             {Picker ? (
               <div
+                ref={popoverRef}
                 style={{
                   '--epr-emoji-size': `${emojiSize}px`,
                   '--epr-emoji-padding': `${Math.max(1, Math.round(emojiSize / 9))}px`,
@@ -124,7 +124,6 @@ export default function EmojiPicker({ onEmojiSelect, formRef, chatboxRef }: Prop
                 <Picker
                   onEmojiClick={(emojiData) => {
                     onEmojiSelect(emojiData.emoji)
-                    setIsOpen(false)
                   }}
                   width={size.width}
                   height={size.height}
@@ -132,7 +131,7 @@ export default function EmojiPicker({ onEmojiSelect, formRef, chatboxRef }: Prop
                 />
               </div>
             ) : (
-              <div className="bg-white/50 backdrop-blur-md border border-white/60 rounded-2xl flex items-center justify-center" style={{ width: size.width, height: size.height }}>
+              <div ref={popoverRef} className="bg-white/50 backdrop-blur-md border border-white/60 rounded-2xl flex items-center justify-center" style={{ width: size.width, height: size.height }}>
                 <span className="typing-dots" aria-label="Loading">
                   <span /><span /><span />
                 </span>

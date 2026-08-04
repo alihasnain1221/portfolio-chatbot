@@ -98,36 +98,53 @@ export const projectsSection = {
   allLabel: 'All Projects',
 }
 
-export const heroProject = {
-  badge: 'Production · AI Moderation',
-  index: '01/03',
-  name: 'SPiN',
-  blurb:
-    'A production sports social network where I built a 3-layer AI content moderation pipeline (AWS Rekognition, then OpenAI Moderation, then GPT-4o with structured output) and re-architected the backend from a monolith into microservices with full Terraform IaC on AWS.',
-  highlights: [
-    '3-layer AI moderation pipeline: vision (Rekognition) → text (OpenAI) → reasoning (GPT-4o)',
-    'Monolith-to-12 microservices decomposition with event-driven architecture',
-    'Full Terraform IaC on AWS: ECS, RDS, ElastiCache, SQS, Lambda',
-    'Real-time content moderation at scale with <500ms p95 verdict latency',
-    'Zero-downtime deploys and cross-region DR for a social media audience',
-  ],
-  tags: ['MERN', 'AWS', 'GPT-4o', 'Terraform', 'Microservices'],
-  image: '/FeaturedProjectsPictures/Spin.png',
-  url: 'https://www.dev.spinsports.ai/',
-}
-
-export const sideProjects = [
+// All featured projects share one shape so the desktop "spotlight" swap can
+// move any of them into the big card (badge, index, highlights and all).
+export const featuredProjects = [
   {
+    badge: 'Production · AI Moderation',
+    index: '01/03',
+    name: 'SPiN',
+    blurb:
+      'A production sports social network where I built a 3-layer AI content moderation pipeline (AWS Rekognition, then OpenAI Moderation, then GPT-4o with structured output) and re-architected the backend from a monolith into microservices with full Terraform IaC on AWS.',
+    highlights: [
+      '3-layer AI moderation pipeline: vision (Rekognition) → text (OpenAI) → reasoning (GPT-4o)',
+      'Monolith-to-12 microservices decomposition with event-driven architecture',
+      'Full Terraform IaC on AWS: ECS, RDS, ElastiCache, SQS, Lambda',
+      'Real-time content moderation at scale with <500ms p95 verdict latency',
+      'Zero-downtime deploys and cross-region DR for a social media audience',
+    ],
+    tags: ['MERN', 'AWS', 'GPT-4o', 'Terraform', 'Microservices'],
+    image: '/FeaturedProjectsPictures/Spin.png',
+    url: 'https://www.dev.spinsports.ai/',
+  },
+  {
+    badge: 'Production · Microservices Decomposition',
+    index: '02/03',
     name: 'UmeedVentures',
     blurb:
       'Re-architected a coupled 3-module monolith into 12 independent microservices with full Terraform IaC on AWS, and led cross-region disaster recovery during an AWS outage.',
+    highlights: [
+      'Monolith-to-12 microservices decomposition with full Terraform IaC on AWS',
+      'Led cross-region disaster recovery during a live AWS regional outage',
+      'Event-driven Nest.js services with reproducible infrastructure across environments',
+      'Zero-downtime migration path out of a coupled 3-module monolith',
+    ],
     tags: ['NEST.JS', 'TERRAFORM', 'AWS'],
     image: '/img/umeed-microservices.svg',
   },
   {
+    badge: 'Production · AI Cold Outreach',
+    index: '03/03',
     name: 'Success.ai',
     blurb:
       'A multi-channel cold outreach platform. Apify scrapes LinkedIn leads, AI generates personalized copy, and a unified multi-account inbox drives automated EmailEngine sequences. Self-hosted on openClaw.',
+    highlights: [
+      'LinkedIn lead sourcing via automated Apify scraping pipelines',
+      'AI-generated personalized outreach copy with OpenAI',
+      'Unified multi-account inbox driving automated EmailEngine sequences',
+      'End-to-end multi-channel cold outreach, self-hosted',
+    ],
     tags: ['MERN', 'OPENAI', 'AUTOMATION'],
     image: '/FeaturedProjectsPictures/SuccessAI.png',
     url: 'https://www.success.ai/',

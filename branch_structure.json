@@ -1,0 +1,15 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "Revamp-The-Ali-Portfolio",
+    "main"
+  ],
+  "parent": {
+    "Revamp-The-Ali-Portfolio": "main",
+    "main": null
+  },
+  "order": [
+    "main",
+    "Revamp-The-Ali-Portfolio"
+  ]
+}

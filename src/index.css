@@ -241,6 +241,112 @@ body {
   }
 }
 
+/* ---- "Ask my AI" call to action ----
+   The one animated thing on the page: a slowly rotating aurora border, a
+   breathing glow behind it, a gentle float and a twinkling sparkle.
+   Markup: <a class="ai-cta"><span class="ai-cta__inner">…</span></a>.
+   The float uses the standalone `translate` property so it composes with
+   Tailwind's transform utilities (e.g. -translate-x-1/2 on the photo pill). */
+@property --ai-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+/* In the components layer so utilities on the element (e.g. `absolute`) win. */
+@layer components {
+.ai-cta {
+  --ai-ring: conic-gradient(from var(--ai-angle), #67e8f9, #a78bfa, #f0abfc, #5eead4, #67e8f9);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  padding: 1.5px;
+  border-radius: 9999px;
+  background: var(--ai-ring);
+  animation:
+    ai-spin 5s linear infinite,
+    ai-float 3.4s ease-in-out infinite;
+  transition: scale 200ms ease;
+}
+.ai-cta::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--ai-ring);
+  filter: blur(12px);
+  animation:
+    ai-spin 5s linear infinite,
+    ai-breathe 3.4s ease-in-out infinite;
+}
+.ai-cta:hover {
+  scale: 1.05;
+}
+.ai-cta:active {
+  scale: 0.97;
+}
+.ai-cta__inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  color: #1a1c1c;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+.ai-cta__spark {
+  font-variation-settings: 'FILL' 1, 'wght' 400;
+  background: linear-gradient(135deg, #22d3ee, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: ai-twinkle 2.4s ease-in-out infinite;
+}
+}
+@keyframes ai-spin {
+  to {
+    --ai-angle: 360deg;
+  }
+}
+@keyframes ai-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -4px;
+  }
+}
+@keyframes ai-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+@keyframes ai-twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.18) rotate(18deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-cta,
+  .ai-cta::before,
+  .ai-cta__spark {
+    animation: none;
+  }
+}
+
 /* ---- Misc ---- */
 .mastery-bar-fill {
   transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);

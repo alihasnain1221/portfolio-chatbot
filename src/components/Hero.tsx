@@ -28,11 +28,11 @@ export default function Hero() {
             >
               {hero.primaryCta}
             </a>
-            <Link
-              to="/chat"
-              className="bg-transparent border border-outline-variant px-6 py-3 rounded-xl text-[11px] text-on-surface-variant hover:bg-white/30 transition-all tracking-widest inline-block"
-            >
-              {hero.secondaryCta}
+            <Link to="/chat" className="ai-cta">
+              <span className="ai-cta__inner px-6 py-3 text-[11px]">
+                <span className="material-symbols-outlined ai-cta__spark text-[16px] leading-none">auto_awesome</span>
+                {hero.secondaryCta}
+              </span>
             </Link>
           </div>
         </div>
@@ -45,21 +45,17 @@ export default function Hero() {
             className="w-auto max-w-full h-[260px] sm:h-[320px] md:h-[400px] object-contain object-bottom drop-shadow-[0px_20px_40px_rgba(0,0,0,0.18)] drop-shadow-[0px_8px_20px_rgba(0,0,0,0.14)]"
           />
           {/* Floating AI button */}
+          {/* Offset so it doesn't bob in sync with the hero button above */}
           <button
             onClick={() => navigate('/chat')}
-            className="absolute bottom-4 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 glass-panel-heavy rounded-full px-5 py-3 flex items-center gap-2.5 hover:scale-105 active:scale-95 transition-all shadow-lg group"
+            className="ai-cta absolute bottom-4 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0"
+            style={{ animationDelay: '-1.7s' }}
             aria-label="Chat with AI Twin"
           >
-            <span
-              className="material-symbols-outlined text-primary text-[22px] leading-none"
-              style={{ fontVariationSettings: "'FILL' 1, 'wght' 400" }}
-            >
-              hub
-            </span>
-            <span className="text-[11px] font-semibold tracking-widest text-on-surface uppercase">
+            <span className="ai-cta__inner px-5 py-3 text-[11px] uppercase">
+              <span className="material-symbols-outlined ai-cta__spark text-[20px] leading-none">auto_awesome</span>
               Ask my AI
             </span>
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           </button>
         </div>
       </div>
@@ -83,11 +79,11 @@ export default function Hero() {
             >
               {hero.primaryCta}
             </a>
-            <Link
-              to="/chat"
-              className="bg-transparent border border-outline-variant px-5 lg:px-6 wide:px-[clamp(20px,1.5vw,28px)] py-2.5 lg:py-3 wide:py-[clamp(10px,0.5vw,14px)] rounded-xl text-[10px] lg:text-[11px] wide:text-[clamp(11px,0.8vw,16px)] text-on-surface-variant hover:bg-white/30 transition-all tracking-widest inline-block"
-            >
-              {hero.secondaryCta}
+            <Link to="/chat" className="ai-cta">
+              <span className="ai-cta__inner px-5 lg:px-6 wide:px-[clamp(20px,1.5vw,28px)] py-2.5 lg:py-3 wide:py-[clamp(10px,0.5vw,14px)] text-[10px] lg:text-[11px] wide:text-[clamp(11px,0.8vw,16px)]">
+                <span className="material-symbols-outlined ai-cta__spark text-[15px] wide:text-[clamp(15px,1vw,20px)] leading-none">auto_awesome</span>
+                {hero.secondaryCta}
+              </span>
             </Link>
           </div>
         </div>

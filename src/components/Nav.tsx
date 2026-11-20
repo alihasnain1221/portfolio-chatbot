@@ -8,15 +8,15 @@ export default function Nav() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/20 backdrop-blur-3xl border-b border-white/60 shadow-[inset_0px_1px_2px_rgba(255,255,255,0.8)]">
-      <div className="flex justify-between items-center h-20 pl-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-        <Link to="/" onClick={close} className="flex items-center gap-3 group">
+      <div className="flex justify-between items-center h-16 md:h-20 pl-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <Link to="/" onClick={close} className="flex items-center gap-2.5 md:gap-3 group">
           <span
-            className="material-symbols-outlined text-primary text-[30px] leading-none"
+            className="material-symbols-outlined text-primary text-[24px] md:text-[30px] leading-none"
             style={{ fontVariationSettings: "'FILL' 1, 'wght' 400" }}
           >
             hub
           </span>
-          <span className="font-headline-md text-[16px] sm:text-headline-md tracking-widest text-on-surface uppercase font-light group-hover:text-primary transition-colors">
+          <span className="font-headline-md text-[14px] sm:text-headline-md tracking-widest text-on-surface uppercase font-light group-hover:text-primary transition-colors">
             {nav.name}
           </span>
         </Link>

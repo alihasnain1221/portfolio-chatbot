@@ -1,8 +1,7 @@
 // -----------------------------------------------------------------------------
-// Home content, grounded in backend/data/profile.yaml + the /ask bundle (real
-// projects, stack, and CV metrics). Kept honest: no invented projects, tech, or
-// numbers. NOTE: images in /public/img are still Stitch AI placeholders (not
-// real Ali / not real screenshots) and should be swapped separately.
+// Home content, grounded in portfolio-bot-engine/data/profile.yaml and the
+// git-verified CAREER-FINDINGS.md (section 9 wording). Kept honest: no invented
+// projects, tech or numbers; a number appears only if it's on record.
 // -----------------------------------------------------------------------------
 
 export const API_BASE: string = (import.meta.env.VITE_API_BASE as string) ?? ''
@@ -21,7 +20,7 @@ export const hero = {
   titleLight: 'Architecting resilient',
   titleBold: 'systems with AI.',
   blurb:
-    'Ali Hasnain is a Senior Software & AI Engineer and Technical Lead. Microservices and distributed systems at heart, run on AWS with Terraform, with production multi-model AI pipelines on top. 5+ years across fintech, healthcare, and SaaS.',
+    'Ali Hasnain is a Senior Software & AI Engineer and Technical Lead. Microservices and distributed systems at heart, run on AWS with Terraform, with production AI pipelines and Claude-powered agents on top. 5+ years across sports, fintech, healthcare, and SaaS.',
   primaryCta: 'VIEW PROJECTS',
   secondaryCta: 'ASK MY AI',
 }
@@ -106,17 +105,17 @@ export const featuredProjects = [
     index: '01/03',
     name: 'SPiN',
     blurb:
-      'A production sports social network where I built a 3-layer AI content moderation pipeline (AWS Rekognition, then OpenAI Moderation, then GPT-4o with structured output) and re-architected the backend from a monolith into microservices with full Terraform IaC on AWS.',
+      'A production sports network for teams, leagues and families. I built its 3-layer AI content moderation pipeline, lead its API regression testing, and built a Claude agent that writes regression tests from Jira tickets, across a platform that moved from a Node monolith to microservices on AWS.',
     highlights: [
-      '3-layer AI moderation pipeline: vision (Rekognition) → text (OpenAI) → reasoning (GPT-4o)',
-      'Monolith-to-12 microservices decomposition with event-driven architecture',
-      'Full Terraform IaC on AWS: ECS, RDS, ElastiCache, SQS, Lambda',
-      'Real-time content moderation at scale with <500ms p95 verdict latency',
-      'Zero-downtime deploys and cross-region DR for a social media audience',
+      '3-layer AI moderation: vision (Rekognition) → language (OpenAI Moderation) → judgment (GPT-4o, structured output), as Terraform-managed Lambdas',
+      'Designed a ~950-case Playwright API regression suite gating a Node → .NET / Postgres backend rewrite, reported to Slack daily by impact',
+      'Built a Claude Agent SDK agent on AWS Fargate that turns Jira acceptance criteria and merged backend changes into regression tests',
+      'Short-lived full-stack test environments per branch (Terraform, ECS Fargate, GitHub Actions)',
+      'AWS WAF on the edge, ECS autoscaling with load tests, a crawler moved from ECS to Lambda + SQS',
     ],
-    tags: ['MERN', 'AWS', 'GPT-4o', 'Terraform', 'Microservices'],
+    tags: ['AWS', 'GPT-4o', 'Claude Agents', 'Playwright', 'Terraform'],
     image: '/FeaturedProjectsPictures/Spin.png',
-    url: 'https://www.dev.spinsports.ai/',
+    url: 'https://spinsports.ai/',
   },
   {
     badge: 'Production · Microservices Decomposition',
@@ -125,10 +124,10 @@ export const featuredProjects = [
     blurb:
       'Re-architected a coupled 3-module monolith into 12 independent microservices with full Terraform IaC on AWS, and led cross-region disaster recovery during an AWS outage.',
     highlights: [
-      'Monolith-to-12 microservices decomposition with full Terraform IaC on AWS',
-      'Led cross-region disaster recovery during a live AWS regional outage',
-      'Event-driven Nest.js services with reproducible infrastructure across environments',
-      'Zero-downtime migration path out of a coupled 3-module monolith',
+      'Monolith-to-12 microservices decomposition, so teams deploy in parallel without blocking each other',
+      'Full Terraform IaC on AWS (ECS, CDN, RDS, API Gateway), reproducible and region-portable',
+      'Led disaster recovery during a Bahrain AWS region outage, moving production to a new region in hours',
+      'Nest.js BFF / gateway over Node.js microservices, cost parity while doubling reliability across 3 teams',
     ],
     tags: ['NEST.JS', 'TERRAFORM', 'AWS'],
     image: '/img/umeed-microservices.svg',
@@ -155,7 +154,7 @@ export const stackSection = {
   heading: 'Technical',
   headingBreak: 'Stack',
   blurb:
-    'Microservices and distributed systems at the core, MERN as the primary stack, run on AWS with Terraform. Production multi-model AI pipelines and agentic automation on top.',
+    'Microservices and distributed systems at the core, MERN as the primary stack, run on AWS with Terraform. Production AI pipelines, Claude agents and MCP on top, with Playwright regression suites keeping it honest.',
 }
 
 // Primary strengths (relative emphasis, not a precision score).
@@ -169,22 +168,22 @@ export const stackCategories = [
   {
     icon: 'psychology',
     title: 'AI/ML',
-    items: ['Multi-model AI pipelines', 'LLMs & GPT-4o', 'RAG & structured output', 'Agentic (n8n + MCP)'],
+    items: ['Multi-model AI pipelines (GPT-4o, Rekognition)', 'Claude Agent SDK & Claude Code', 'MCP servers (authoring & using)', 'n8n automation, structured LLM output'],
   },
   {
     icon: 'dns',
     title: 'Backend',
-    items: ['Node.js / Nest.js / Express', 'MERN stack', 'REST & gRPC', 'Event-driven architecture'],
+    items: ['Node.js / Nest.js / Express', 'Python FastAPI, C# / .NET', 'PostgreSQL, MongoDB, Redis', 'Event-driven (SQS, Lambda)'],
   },
   {
     icon: 'cloud_queue',
     title: 'Infrastructure',
-    items: ['Terraform / HashiCorp', 'AWS (Lambda, ECS, RDS)', 'CI/CD pipelines', 'Grafana / OpenTelemetry'],
+    items: ['Terraform / Terraform Cloud', 'AWS (ECS Fargate, Lambda, WAF)', 'GitHub Actions CI/CD', 'OpenTelemetry / Sentry'],
   },
   {
     icon: 'terminal',
-    title: 'Frontend',
-    items: ['React / Vite', 'TypeScript', 'Redux / Redux Saga', 'Micro-frontends'],
+    title: 'Frontend & Testing',
+    items: ['React / Vue 3 / TypeScript', 'Capacitor (iOS & Android)', 'Playwright E2E & API suites', 'Micro-frontends'],
   },
 ]
 
@@ -193,11 +192,10 @@ export const story = {
   heading: 'Systems that bend, not break.',
   blurb:
     "I lead architecture-first. Whether I'm leading a team of 6 or splitting a monolith into microservices, the goal is clarity and resilience: reproducible infrastructure as code, zero-downtime deploys, and recovery that holds up when a whole region goes down.",
+  // The Story grid is 3 columns; keep exactly 3 stats, each on record in the CV.
   stats: [
-    { value: '10+', label: 'Years Experience' },
-    { value: '15+', label: 'Well Managed Projects' },
     { value: '5+', label: 'Years Experience' },
-    { value: 'Lead', label: 'Cross-functional teams' },
+    { value: '6', label: 'Engineers Led' },
     { value: '99.9%', label: 'Uptime' },
   ],
   image: '/img/story-resilience.svg',

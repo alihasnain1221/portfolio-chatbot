@@ -30,9 +30,12 @@ export default function Projects() {
           </h2>
           <p className="text-on-surface-variant font-light">{projectsSection.sub}</p>
         </div>
-        <button className="text-outline font-label-md text-label-md flex items-center gap-2 hover:text-on-surface transition-colors tracking-widest uppercase">
-          {projectsSection.allLabel} <span className="material-symbols-outlined font-light">east</span>
-        </button>
+        <a
+          href="#more-projects"
+          className="text-outline font-label-md text-label-md flex items-center gap-2 hover:text-on-surface transition-colors tracking-widest uppercase"
+        >
+          {projectsSection.allLabel} <span className="material-symbols-outlined font-light">south</span>
+        </a>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-2 gap-6 sm:gap-7 md:gap-8 lg:min-h-[750px]">
@@ -60,8 +63,8 @@ export default function Projects() {
                 {big.blurb}
               </p>
             </div>
-            <div className="reveal-item hidden lg:flex flex-1 items-center justify-start" style={{ animationDelay: '70ms' }}>
-              <div className="space-y-2.5">
+            <div className="reveal-item flex flex-1 items-center justify-start mb-5 lg:mb-0" style={{ animationDelay: '70ms' }}>
+              <div className="space-y-2 lg:space-y-2.5">
                 {big.highlights.map((h) => (
                   <div key={h} className="flex items-start gap-2.5">
                     <span className="material-symbols-outlined text-primary text-[14px] md:text-[16px] mt-0.5 shrink-0">check</span>

@@ -25,6 +25,14 @@ export const hero = {
   secondaryCta: 'ASK MY AI',
 }
 
+// Proof strip under the hero. Each one is on record (CAREER-FINDINGS.md / CV).
+export const proof = [
+  { value: '~950', label: 'API regression cases in a suite I designed and lead' },
+  { value: 'Jira → tests', label: 'A Claude agent I built writes regression tests from tickets' },
+  { value: '1 → 12', label: 'Monolith split into independent microservices' },
+  { value: 'Hours', label: 'To move production to a new AWS region during an outage' },
+]
+
 export const aiTwin = {
   name: "Ali's AI Twin",
   status: 'Online & Thinking',
@@ -131,6 +139,7 @@ export const featuredProjects = [
     ],
     tags: ['NEST.JS', 'TERRAFORM', 'AWS'],
     image: '/img/umeed-microservices.svg',
+    url: 'https://umeedcs.com/',
   },
   {
     badge: 'Production · AI Cold Outreach',
@@ -150,6 +159,103 @@ export const featuredProjects = [
   },
 ]
 
+// Compact cards under the featured three. `to` is an in-site route, `url` external.
+// Wording follows each project's real role: "contributed" where it was a team effort.
+export const moreProjects: {
+  name: string
+  domain: string
+  blurb: string
+  tags: string[]
+  url?: string
+  to?: string
+  cta?: string
+}[] = [
+  {
+    name: "This site's AI twin",
+    domain: 'AI · Solo build',
+    blurb:
+      'The chatbot on this site. It answers only from my real repos and CV, with rules against overclaiming and leaking client details. One engine runs three live bots, across four LLM providers with automatic fallback.',
+    tags: ['Python', 'FastAPI', 'Claude', 'Gemini', 'Docker'],
+    to: '/chat',
+    cta: 'Try it',
+  },
+  {
+    name: 'SafeScan',
+    domain: 'B2B SaaS · Jobsite safety',
+    blurb:
+      'Compliance and jobsite safety platform with real-time check-ins and digital inspections. I led the admin backend and built its AI assistant and AI-written monthly compliance reports on xAI Grok.',
+    tags: ['MERN', 'gRPC', 'xAI Grok', 'AWS Lambda'],
+    url: 'https://www.safesiteusa.com/',
+  },
+  {
+    name: 'MojoTip',
+    domain: 'Fintech · Cashless tipping',
+    blurb:
+      'Cashless tipping platform, launched as InstaTip. Built from scratch as an MVP, then scaled horizontally as load grew, with automated CI/CD.',
+    tags: ['Node.js', 'MongoDB', 'TypeScript', 'CI/CD'],
+    url: 'https://mojotip.com',
+  },
+  {
+    name: 'Lantern Finance',
+    domain: 'Fintech · Web3',
+    blurb:
+      'Fractional ETH staking that pools investments to reach the 32 ETH minimum. I contributed to the backend: BitGo and MetaMask integration, and keeping the in-app ledger in sync with on-chain state.',
+    tags: ['MERN', 'BitGo', 'MetaMask', 'ethers.js'],
+    url: 'https://lantern.finance/',
+  },
+  {
+    name: 'CastingPAX',
+    domain: 'B2B2C · Casting',
+    blurb:
+      'Casting platform that automates the casting process for directors and talent. Micro-frontend architecture, with unit tests and test stories in CI.',
+    tags: ['MERN', 'Micro-frontends', 'AWS RDS'],
+    url: 'https://www.castingpax.com/',
+  },
+  {
+    name: 'Trove',
+    domain: 'eGift cards · APAC',
+    blurb:
+      'eGift card distribution for employee gifting across the Asia-Pacific region, with a dashboard tracking spending and redemptions.',
+    tags: ['MERN', 'AWS EC2', 'GCP Cloud Functions'],
+    url: 'https://trove.com/',
+  },
+]
+
+export const moreProjectsSection = {
+  heading: 'More work',
+  sub: 'Fintech, SaaS and AI builds from the same five years.',
+}
+
+// "How I build with AI": the differentiator, said plainly.
+export const aiWork = {
+  tag: 'Working with AI',
+  heading: 'AI is how I build, not just what I build.',
+  blurb:
+    'I ship AI features, and I also use agents to ship everything else faster, with tests and guardrails so it stays trustworthy.',
+  items: [
+    {
+      icon: 'smart_toy',
+      title: 'Agents in production',
+      text: 'Built a Claude Agent SDK agent on AWS Fargate that reads a Jira ticket and the merged code, then opens a pull request with regression tests. Driven from Jira and Slack, with time and cost caps on every run.',
+    },
+    {
+      icon: 'hub',
+      title: 'MCP, both sides',
+      text: 'Wrote an MCP server that simulates platform users to fill test environments. Daily I work through MCP connections to Figma, Jira, Slack and GitHub.',
+    },
+    {
+      icon: 'terminal',
+      title: 'Claude Code, every day',
+      text: 'Around 575 commits co-authored with Claude Code since February 2026, driven by my own skills: Playwright walkthroughs of every UI change, ticket and doc authoring, live server access.',
+    },
+    {
+      icon: 'verified_user',
+      title: 'Guardrails first',
+      text: 'AI output gets checked: a 3-layer moderation pipeline in production, test agents that report what they did not cover, and a portfolio bot that refuses to claim work I did not do.',
+    },
+  ],
+}
+
 export const stackSection = {
   heading: 'Technical',
   headingBreak: 'Stack',
@@ -157,11 +263,11 @@ export const stackSection = {
     'Microservices and distributed systems at the core, MERN as the primary stack, run on AWS with Terraform. Production AI pipelines, Claude agents and MCP on top, with Playwright regression suites keeping it honest.',
 }
 
-// Primary strengths (relative emphasis, not a precision score).
-export const masteryBars = [
-  { label: 'BACKEND & MICROSERVICES', pct: 95 },
-  { label: 'CLOUD & IaC (AWS / TERRAFORM)', pct: 88 },
-  { label: 'AI & LLM PIPELINES', pct: 85 },
+// Primary strengths, each backed by something shipped instead of a self-rated score.
+export const strengths = [
+  { label: 'BACKEND & MICROSERVICES', shipped: 'Split one monolith into 12 services, features across Node, Python and .NET APIs' },
+  { label: 'CLOUD & IaC (AWS / TERRAFORM)', shipped: 'Per-branch test environments, WAF, autoscaling, a region move in hours' },
+  { label: 'AI & AGENTS', shipped: '3-layer moderation in production, a test-writing agent, an MCP server' },
 ]
 
 export const stackCategories = [
@@ -200,6 +306,18 @@ export const story = {
   ],
   image: '/img/story-resilience.svg',
   badge: 'Architecture First',
+  leadership: [
+    'Technical Lead since 2022, after leading a team of 6 engineers',
+    'Unblocked 3 teams to deploy independently at UmeedVentures',
+    'Code reviews, mentoring and sprint leadership as a daily habit',
+    'MSCS, FAST National University, graduated with High Honors',
+  ],
+}
+
+export const closing = {
+  heading: "Got something that needs to scale, or needs AI that's actually reliable?",
+  sub: "Ask my AI anything about my work, or reach me directly. I'm open to contract, advisory and full-time roles.",
+  email: 'alibutthasnain@gmail.com',
 }
 
 export const footer = {

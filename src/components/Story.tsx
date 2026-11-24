@@ -18,6 +18,14 @@ export default function Story() {
           <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed font-light">
             {story.blurb}
           </p>
+          <ul className="space-y-2.5">
+            {story.leadership.map((l) => (
+              <li key={l} className="flex items-start gap-2.5">
+                <span className="material-symbols-outlined text-primary text-[16px] mt-0.5 shrink-0">check</span>
+                <span className="text-[13px] sm:text-[15px] text-on-surface-variant font-light leading-relaxed">{l}</span>
+              </li>
+            ))}
+          </ul>
           <div className="pt-10 border-t border-outline-variant/30 grid grid-cols-3 gap-4 md:gap-10">
             {story.stats.map((s) => (
               <div key={s.label}>
